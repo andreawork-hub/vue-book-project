@@ -1,15 +1,34 @@
 <template>
     <h1>Sign Up</h1>
     <div class="signup">
-        <input type="text" placeholder="Enter Name"/>
-        <input type="text" placeholder="Enter Email"/>
-        <input type="password" placeholder="Enter Password"/>
-        <button>Sign Up</button>
+        <input type="text" v-model="name" placeholder="Enter Name"/>
+        <input type="text" v-model="email" placeholder="Enter Email"/>
+        <input type="password" v-model="password" placeholder="Enter Password"/>
+        <button v-on:click="signUp">Sign Up</button>
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
-    name: 'SignUp'
+    name: 'SignUp', 
+    data () {
+        return {
+            name: '',
+            email: '',
+            password: ''
+        }
+    }, 
+    methods: {
+        signUp()
+        {
+            let result = axios.post("http://localhost:3000/users", {name:this.name, email:this.email,password:this.password});
+        console.warn(result);
+        if(result.status==201){
+            alert ("Sign Up Completed")
+            localStorage.setItem("user-info",JSON.stringify(result.data))
+        }
+        }
+    }
 }
 </script>
 <style>
@@ -30,5 +49,6 @@ border: 1px solid darkblue;
 border-radius: 8px 0px;
 background-color: darkblue;
 color: white;
+cursor: pointer;
 }
 </style>

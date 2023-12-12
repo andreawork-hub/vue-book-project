@@ -25,6 +25,7 @@ components: {
   margin-top: 60px;
 }
 .projectname{
+  
     border: 1px solid darkblue;
 border-radius: 8px 0px;
 background-color: darkblue;
