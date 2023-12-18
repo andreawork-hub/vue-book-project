@@ -1,17 +1,12 @@
 <template>
-  <h1 class="projectname">Vue Book Project</h1>
-  <h1><a href="https://neacodes.com/" rel="home">NEA codes</a></h1>
-  <SignUp/>
+  <router-view/>
 </template>
 
 <script>
 
-import SignUp from './components/SignUp.vue'
 export default {
   name: 'App',
-components: {
-  SignUp
-}
+
 }
 </script>
 
@@ -32,3 +27,7 @@ background-color: darkblue;
 color: white;
 }
 </style>
+
+ <!--<h1 class="projectname">Vue Book Project</h1>
+  <h1><a href="https://neacodes.com/" rel="home">NEA codes</a></h1>
+  <SignUp/> -->
